@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextLexicon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        header {
+            background: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        /* Navigation Links */
+        header nav {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            background: #f8f9fc;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            color: #555;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: #0056b3;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Inputs */
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s, background 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #0056b3;
+            background: #fff;
+            box-shadow: inset 0 2px 8px rgba(0, 85, 179, 0.2);
+        }
+
+        /* Buttons */
+        .action-btn {
+            padding: 12px 25px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            text-align: center;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn:hover {
+            background: #004494;
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: #777;
+            color: #fff;
+        }
+
+        .action-btn.secondary:hover {
+            background: #555;
+        }
+
+        /* Results */
+        .result {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #222;
+            background: #f9f9f9;
+            border-left: 4px solid #0056b3;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            white-space: pre-wrap;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #f1f1f1;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .tab-btn {
+                font-size: 0.9rem;
+            }
+
+            .action-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TextLexicon</h1>
+            <p>Your all-in-one text utility tool</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About the Creator</a>
+            </nav>
+        </header>
+        <nav class="tabs">
+            <button onclick="showTab('emailValidator')" class="tab-btn active">Email Validator</button>
+            <button onclick="showTab('wordCounter')" class="tab-btn">Word Counter</button>
+            <button onclick="showTab('passwordChecker')" class="tab-btn">Password Strength Checker</button>
+            <button onclick="showTab('encryptionDecryption')" class="tab-btn">Encrypt/Decrypt Text</button>
+        </nav>
+
+        <div id="emailValidator" class="tab-content active">
+            <h2>Email Validator</h2>
+            <input type="text" id="emailInput" placeholder="Enter email" class="input-field">
+            <button onclick="validateEmail()" class="action-btn">Validate Email</button>
+            <p id="emailResult" class="result"></p>
+        </div>
+
+        <div id="wordCounter" class="tab-content">
+            <h2>Word Counter</h2>
+            <textarea id="paragraphInput" placeholder="Enter your paragraph" class="input-field"></textarea>
+            <input type="text" id="wordCheckInput" placeholder="Enter word to check (optional)" class="input-field">
+            <button onclick="countWords()" class="action-btn">Count Words</button>
+            <p id="wordCountResult" class="result"></p>
+        </div>
+
+        <div id="passwordChecker" class="tab-content">
+            <h2>Password Strength Checker</h2>
+            <input type="password" id="passwordInput" placeholder="Enter your password" class="input-field">
+            <button onclick="checkPassword()" class="action-btn">Check Password Strength</button>
+            <p id="passwordResult" class="result"></p>
+        </div>
+
+        <div id="encryptionDecryption" class="tab-content">
+            <h2>Encrypt/Decrypt Text</h2>
+            <textarea id="textInput" placeholder="Enter your text" class="input-field"></textarea>
+            <button onclick="encryptText()" class="action-btn">Encrypt</button>
+            <button onclick="decryptText()" class="action-btn secondary">Decrypt</button>
+            <p id="textResult" class="result"></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 TextLexicon. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
